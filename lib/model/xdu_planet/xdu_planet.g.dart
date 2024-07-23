@@ -6,11 +6,25 @@ part of 'xdu_planet.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+Comment _$CommentFromJson(Map<String, dynamic> json) => Comment(
+      articleId: json['articleId'] as String,
+      content: json['content'] as String,
+      userId: json['userId'] as String,
+    )..replyTo = json['replyTo'] as String?;
+
+Map<String, dynamic> _$CommentToJson(Comment instance) => <String, dynamic>{
+      'articleId': instance.articleId,
+      'content': instance.content,
+      'userId': instance.userId,
+      'replyTo': instance.replyTo,
+    };
+
 Article _$ArticleFromJson(Map<String, dynamic> json) => Article(
       title: json['title'] as String,
       time: DateTime.parse(json['time'] as String),
       content: json['content'] as String,
       url: json['url'] as String,
+      author: json['author'] as String?,
     );
 
 Map<String, dynamic> _$ArticleToJson(Article instance) => <String, dynamic>{
@@ -18,6 +32,7 @@ Map<String, dynamic> _$ArticleToJson(Article instance) => <String, dynamic>{
       'time': instance.time.toIso8601String(),
       'content': instance.content,
       'url': instance.url,
+      'author': instance.author,
     };
 
 Person _$PersonFromJson(Map<String, dynamic> json) => Person(

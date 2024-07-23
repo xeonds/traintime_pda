@@ -10,6 +10,7 @@ import 'package:styled_widget/styled_widget.dart';
 import 'package:watermeter/model/xdu_planet/xdu_planet.dart';
 import 'package:watermeter/page/public_widget/context_extension.dart';
 import 'package:watermeter/page/public_widget/public_widget.dart';
+import 'package:watermeter/page/xdu_planet/article_page.dart';
 import 'package:watermeter/page/xdu_planet/content_page.dart';
 import 'package:watermeter/repository/xdu_planet_session.dart';
 
@@ -176,7 +177,7 @@ class ArticleCard extends StatelessWidget {
         )
         .gestures(
       onTap: () {
-        context.pushReplacement(ContentPage(
+        context.pushReplacement(ArticlePage(
           article: article,
           author: article.author!,
         ));

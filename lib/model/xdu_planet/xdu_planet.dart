@@ -91,6 +91,22 @@ class Content {
 }
 */
 @JsonSerializable(explicitToJson: true)
+class Comment {
+  final String articleId;
+  final String content;
+  final DateTime time;
+  final String userId;
+  String? replyTo;
+
+  Comment({required this.articleId, required this.content, required this.time, required this.userId});
+
+  factory Comment.fromJson(Map<String, dynamic> json) => 
+    _$CommentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CommentToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class Article {
   final String title;
   final DateTime time;
